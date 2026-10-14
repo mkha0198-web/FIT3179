@@ -1,0 +1,124 @@
+
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Reading genres by age group in Australia, NAPS 2025",
+
+  "width": 560,
+  "height": 330,
+  "background": "#F8F5EF",
+
+  "data": {
+    "url": "data/reading_genre_by_age_2025.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "percentage": "number"
+      }
+    }
+  },
+
+  "transform": [
+    {
+      "calculate": "datum.genre == 'A novel or short story' ? 'Novels / short stories' : datum.genre == 'Instructional non-fiction e.g. guide book or cookbook' ? 'Instructional non-fiction' : datum.genre == 'Creative non-fiction e.g. biography or history' ? 'Creative non-fiction' : datum.genre == 'Graphic novel or comic' ? 'Graphic novels / comics' : datum.genre == 'A play' ? 'Plays' : datum.genre",
+      "as": "short_genre"
+    }
+  ],
+
+  "mark": {
+    "type": "rect",
+    "stroke": "#F8F5EF",
+    "strokeWidth": 3
+  },
+
+  "encoding": {
+    "x": {
+      "field": "age_group",
+      "type": "ordinal",
+      "sort": [
+        "15-24",
+        "25 - 34",
+        "35 - 44",
+        "45 - 54",
+        "55 - 64",
+        "65+"
+      ],
+      "axis": {
+        "title": "Age group (years)",
+        "labelAngle": 0,
+        "labelFontSize": 12,
+        "titleFontSize": 13,
+        "labelPadding": 8
+      }
+    },
+
+    "y": {
+      "field": "short_genre",
+      "type": "ordinal",
+      "sort": [
+        "Novels / short stories",
+        "Instructional non-fiction",
+        "Creative non-fiction",
+        "Graphic novels / comics",
+        "Poetry",
+        "Plays"
+      ],
+      "axis": {
+        "title": null,
+        "labelFontSize": 12,
+        "labelLimit": 210,
+        "labelPadding": 10
+      }
+    },
+
+    "color": {
+      "field": "percentage",
+      "type": "quantitative",
+      "title": "Read genre (%)",
+      "scale": {
+        "domain": [0, 60],
+        "range": [
+          "#E7E6D8",
+          "#92BBA3",
+          "#214D3F"
+        ]
+      },
+      "legend": {
+        "orient": "bottom",
+        "gradientLength": 250,
+        "titleFontSize": 12,
+        "labelFontSize": 11
+      }
+    },
+
+    "tooltip": [
+      {
+        "field": "genre",
+        "type": "nominal",
+        "title": "Book genre"
+      },
+      {
+        "field": "age_group",
+        "type": "nominal",
+        "title": "Age group"
+      },
+      {
+        "field": "percentage",
+        "type": "quantitative",
+        "format": ".2f",
+        "title": "Percentage (%)"
+      }
+    ]
+  },
+
+  "config": {
+    "view": {
+      "stroke": "transparent"
+    },
+    "axis": {
+      "labelColor": "#29332F",
+      "titleColor": "#29332F",
+      "domainColor": "#B8B0A4",
+      "tickColor": "#B8B0A4"
+    }
+  }
+}
