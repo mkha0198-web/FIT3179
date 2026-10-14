@@ -1,0 +1,37 @@
+
+/* Beyond the Bookshelf - Website Styles */
+
+/* General page styling */
+body {
+    background-color: #F8F5EF;
+    color: #29332F;
+    font-family: 'Segoe UI', Arial, sans-serif;
+
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 30px;
+    line-height: 1.7;
+}
+
+/* Main website title */
+h1 {
+    font-family: Georgia, serif;
+    font-size: 56px;
+    color: #285F58;
+    margin-bottom: 10px;
+}
+
+/* Section headings */
+h2 {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    color: #A47742;
+    margin-top: 10px;
+}
+
+/* Paragraphs */
+p {
+    font-size: 17px;
+    color: #555D56;
+    max-width: 750px;
+}
