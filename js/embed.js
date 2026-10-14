@@ -32,3 +32,15 @@ vegaEmbed(
 ).catch(error => {
     console.error('Error loading butterfly chart:', error);
 });
+
+
+ // Chart 4: Library Membership vs Collection Usage
+vegaEmbed(
+    '#membership_scatter',
+    'charts/membership_scatter.vg.json',
+    {
+        actions: false
+    }
+).catch(error => {
+    console.error('Error loading connected scatterplot:', error);
+});

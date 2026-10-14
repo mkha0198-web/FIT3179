@@ -1,0 +1,138 @@
+
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Australian public library membership and collection usage per capita, 2020-21 to 2024-25.",
+
+  "width": 600,
+  "height": 360,
+  "background": "#F8F5EF",
+
+  "data": {
+    "url": "data/library_membership_usage.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year_end": "number",
+        "members_pct_total_population": "number",
+        "collection_usage_per_capita": "number",
+        "registered_library_members": "number"
+      }
+    }
+  },
+
+  "encoding": {
+    "x": {
+      "field": "members_pct_total_population",
+      "type": "quantitative",
+      "scale": {
+        "domain": [25, 40]
+      },
+      "axis": {
+        "title": "Registered members (% of population)",
+        "values": [25, 28, 31, 34, 37, 40],
+        "labelFontSize": 12,
+        "titleFontSize": 13,
+        "grid": true,
+        "gridColor": "#DED8CE"
+      }
+    },
+
+    "y": {
+      "field": "collection_usage_per_capita",
+      "type": "quantitative",
+      "scale": {
+        "domain": [5, 7]
+      },
+      "axis": {
+        "title": "Collection usage per person",
+        "values": [5, 5.5, 6, 6.5, 7],
+        "labelFontSize": 12,
+        "titleFontSize": 13,
+        "grid": true,
+        "gridColor": "#DED8CE"
+      }
+    }
+  },
+
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "color": "#214D3F",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "order": {
+          "field": "year_end",
+          "type": "quantitative",
+          "sort": "ascending"
+        }
+      }
+    },
+
+    {
+      "mark": {
+        "type": "circle",
+        "size": 180,
+        "color": "#B58A4A",
+        "stroke": "#214D3F",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "financial_year",
+            "type": "nominal",
+            "title": "Financial year"
+          },
+          {
+            "field": "members_pct_total_population",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "Registered members (%)"
+          },
+          {
+            "field": "collection_usage_per_capita",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "Collection usage per capita"
+          },
+          {
+            "field": "registered_library_members",
+            "type": "quantitative",
+            "format": ",d",
+            "title": "Registered members"
+          }
+        ]
+      }
+    },
+
+    {
+      "mark": {
+        "type": "text",
+        "dy": -16,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#29332F"
+      },
+      "encoding": {
+        "text": {
+          "field": "financial_year",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+
+  "config": {
+    "view": {
+      "stroke": "transparent"
+    },
+    "axis": {
+      "labelColor": "#29332F",
+      "titleColor": "#29332F",
+      "domainColor": "#B8B0A4",
+      "tickColor": "#B8B0A4"
+    }
+  }
+}
