@@ -1,0 +1,106 @@
+
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Reading participation in Australia, NAPS 2025",
+
+  "width": 450,
+  "height": 450,
+  "background": "#F8F5EF",
+
+  "data": {
+    "sequence": {
+      "start": 1,
+      "stop": 101,
+      "as": "square"
+    }
+  },
+
+  "transform": [
+    {
+      "calculate": "'Read books'",
+      "as": "category_key"
+    },
+    {
+      "lookup": "category_key",
+      "from": {
+        "data": {
+          "url": "data/reading_participation_2025.csv",
+          "format": {
+            "type": "csv",
+            "parse": {
+              "percentage": "number"
+            }
+          }
+        },
+        "key": "category",
+        "fields": ["percentage"]
+      }
+    },
+    {
+      "calculate": "datum.square <= round(datum.percentage) ? 'Read books' : 'Did not read for pleasure'",
+      "as": "status"
+    },
+    {
+      "calculate": "(datum.square - 1) % 10",
+      "as": "column"
+    },
+    {
+      "calculate": "floor((datum.square - 1) / 10)",
+      "as": "row"
+    },
+    {
+      "calculate": "datum.status == 'Read books' ? datum.percentage : 100 - datum.percentage",
+      "as": "group_percentage"
+    }
+  ],
+
+  "mark": {
+    "type": "rect",
+    "stroke": "#F8F5EF",
+    "strokeWidth": 3
+  },
+
+  "encoding": {
+    "x": {
+      "field": "column",
+      "type": "ordinal",
+      "axis": null
+    },
+    "y": {
+      "field": "row",
+      "type": "ordinal",
+      "axis": null
+    },
+    "color": {
+      "field": "status",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Read books", "Did not read for pleasure"],
+        "range": ["#214D3F", "#DED5C7"]
+      },
+      "legend": {
+        "title": null,
+        "orient": "bottom"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "status",
+        "type": "nominal",
+        "title": "Participation"
+      },
+      {
+        "field": "group_percentage",
+        "type": "quantitative",
+        "format": ".2f",
+        "title": "Percentage"
+      }
+    ]
+  },
+
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}

@@ -6,17 +6,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beyond the Bookshelf | FIT3179</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- Vega-Lite Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
-
 <body>
-    <h1>Beyond the Bookshelf</h1>
-    <h2>How Australia Reads and Borrows</h2>
 
-    <p>
-        Exploring reading habits and public libraries
-        across Australia.
-    </p>
+    <!-- Website Introduction -->
+    <header>
+        <h1>Beyond the Bookshelf</h1>
+        <h2>How Australia Reads and Borrows</h2>
 
-    <p>Data Visualisation 2 - Work in Progress</p>
+        <p>
+            Exploring how Australians read, what different
+            generations enjoy, and how public libraries
+            are changing in the digital age.
+        </p>
+    </header>
+
+    <main>
+
+        <!-- Section 1: Waffle Chart -->
+        <section>
+            <h2>01 — A Nation of Readers</h2>
+
+            <p>
+                In 2025, approximately 69% of Australians
+                aged 15 and over read books for pleasure.
+                But what does this tell us about Australia's
+                reading habbits?
+            </p>
+
+            <div id="waffle_chart"></div>
+        </section>
+
+        <!-- Section 2: Heatmap -->
+        <section>
+            <h2>02 — Reading Across Generations</h2>
+
+            <p>
+                Reading preferences differ across age groups.
+                Explore how six book genres appeal to
+                different generations of Australians.
+            </p>
+
+            <div id="genre_heatmap"></div>
+            <p>Heatmap coming soon.</p>
+        </section>
+
+        <!-- Section 3: Butterfly Chart -->
+        <section>
+            <h2>03 — The Digital Bookshelf</h2>
+
+            <p>
+                Australian public libraries are evolving.
+                Digital collections have expanded,
+                changing the balance between physical
+                and digital library holdings.
+            </p>
+
+            <div id="collections_butterfly"></div>
+            <p>Butterfly chart coming soon.</p>
+        </section>
+
+        <!-- Section 4: Connected Scatterplot -->
+        <section>
+            <h2>04 — The Changing Library</h2>
+
+            <p>
+                Registered library membership has declined
+                while recorded collection usage per person
+                has increased. Explore how these two
+                measures changed between 2020 and 2025.
+            </p>
+
+            <div id="membership_scatter"></div>
+            <p>Connected scatterplot coming soon.</p>
+        </section>
+
+    </main>
+
+    <!-- Website Footer -->
+    <footer>
+        <p>
+            Sources: Creative Australia (NAPS 2025)
+            and ALIA/NSLA (2024–25).
+        </p>
+
+        <p>FIT3179 Data Visualisation 2</p>
+    </footer>
+
+    <script src="js/embed.js"></script>
+
 </body>
 </html>
