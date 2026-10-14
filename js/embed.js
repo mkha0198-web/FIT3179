@@ -20,3 +20,15 @@ vegaEmbed(
 ).catch(error => {
     console.error('Error loading genre heatmap:', error);
 });
+
+
+ // Chart 3: Physical vs Digital Library Collections
+vegaEmbed(
+    '#collections_butterfly',
+    'charts/collections_butterfly.vg.json',
+    {
+        actions: false
+    }
+).catch(error => {
+    console.error('Error loading butterfly chart:', error);
+});
