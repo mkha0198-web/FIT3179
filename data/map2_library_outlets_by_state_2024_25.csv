@@ -1,0 +1,9 @@
+state,state_code,financial_year,library_branches,mobile_libraries,other_library_outlets,total_library_outlets
+Australian Capital Territory,ACT,2024-25,10,0,0,10
+New South Wales,NSW,2024-25,365,27,74,466
+Northern Territory,NT,2024-25,30,1,5,36
+Queensland,QLD,2024-25,303,14,22,339
+South Australia,SA,2024-25,132,4,31,167
+Tasmania,TAS,2024-25,45,0,4,49
+Victoria,VIC,2024-25,292,43,84,419
+Western Australia,WA,2024-25,232,1,14,247

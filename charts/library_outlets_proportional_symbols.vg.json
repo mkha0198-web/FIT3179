@@ -1,0 +1,183 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Proportional symbol map showing public library service points by Australian state and territory, financial year 2024-25. Circles show totals at representative state positions, not individual outlet locations.",
+  "width": 690,
+  "height": 460,
+  "background": "#F8F5EF",
+  "projection": {
+    "type": "mercator"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/master/states.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#E6EAE1",
+        "stroke": "#F8F5EF",
+        "strokeWidth": 1.5
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "state": "Australian Capital Territory",
+            "longitude": 149.12,
+            "latitude": -35.31
+          },
+          {
+            "state": "New South Wales",
+            "longitude": 146.9,
+            "latitude": -32.15
+          },
+          {
+            "state": "Northern Territory",
+            "longitude": 133.35,
+            "latitude": -19.45
+          },
+          {
+            "state": "Queensland",
+            "longitude": 144.8,
+            "latitude": -22.75
+          },
+          {
+            "state": "South Australia",
+            "longitude": 135.05,
+            "latitude": -30.1
+          },
+          {
+            "state": "Tasmania",
+            "longitude": 146.65,
+            "latitude": -42.1
+          },
+          {
+            "state": "Victoria",
+            "longitude": 144.4,
+            "latitude": -37.1
+          },
+          {
+            "state": "Western Australia",
+            "longitude": 122.05,
+            "latitude": -25.1
+          }
+        ]
+      },
+      "transform": [
+        {
+          "lookup": "state",
+          "from": {
+            "data": {
+              "url": "data/map2_library_outlets_by_state_2024_25.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "library_branches": "number",
+                  "mobile_libraries": "number",
+                  "other_library_outlets": "number",
+                  "total_library_outlets": "number"
+                }
+              }
+            },
+            "key": "state",
+            "fields": [
+              "state_code",
+              "financial_year",
+              "library_branches",
+              "mobile_libraries",
+              "other_library_outlets",
+              "total_library_outlets"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "color": "#B58A4A",
+        "stroke": "#214D3F",
+        "strokeWidth": 1.5,
+        "opacity": 0.83
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "total_library_outlets",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              500
+            ],
+            "range": [
+              0,
+              2500
+            ]
+          },
+          "legend": {
+            "title": "Library service points",
+            "orient": "bottom",
+            "labelFontSize": 12,
+            "titleFontSize": 13
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State or territory"
+          },
+          {
+            "field": "financial_year",
+            "type": "nominal",
+            "title": "Financial year"
+          },
+          {
+            "field": "total_library_outlets",
+            "type": "quantitative",
+            "format": ",d",
+            "title": "Total service points"
+          },
+          {
+            "field": "library_branches",
+            "type": "quantitative",
+            "format": ",d",
+            "title": "Library branches"
+          },
+          {
+            "field": "mobile_libraries",
+            "type": "quantitative",
+            "format": ",d",
+            "title": "Mobile libraries"
+          },
+          {
+            "field": "other_library_outlets",
+            "type": "quantitative",
+            "format": ",d",
+            "title": "Other outlets"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": "transparent"
+    },
+    "legend": {
+      "labelColor": "#29332F",
+      "titleColor": "#29332F"
+    }
+  }
+}

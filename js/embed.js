@@ -44,3 +44,27 @@ vegaEmbed(
 ).catch(error => {
     console.error('Error loading connected scatterplot:', error);
 });
+
+
+// Chart 5: Reading Participation by State — Choropleth Map
+vegaEmbed(
+    '#reading_state_map',
+    'charts/reading_state_choropleth.vg.json',
+    {
+        actions: false
+    }
+).catch(error => {
+    console.error('Error loading reading map:', error);
+});
+
+
+// Chart 6: Public Library Service Points — Proportional Symbol Map
+vegaEmbed(
+    '#library_outlets_map',
+    'charts/library_outlets_proportional_symbols.vg.json',
+    {
+        actions: false
+    }
+).catch(error => {
+    console.error('Error loading library outlets map:', error);
+});

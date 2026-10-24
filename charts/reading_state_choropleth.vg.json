@@ -1,0 +1,90 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Percentage of people aged 15+ reading books for pleasure across Australian states and territories in 2025 (Creative Australia, National Arts Participation Survey 2025).",
+  "width": 690,
+  "height": 460,
+  "background": "#F8F5EF",
+  "data": {
+    "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/master/states.geojson",
+    "format": {
+      "type": "json",
+      "property": "features"
+    }
+  },
+  "transform": [
+    {
+      "calculate": "datum.properties.STATE_NAME",
+      "as": "state"
+    },
+    {
+      "lookup": "state",
+      "from": {
+        "data": {
+          "url": "data/map1_reading_by_state_2025.csv",
+          "format": {
+            "type": "csv",
+            "parse": {
+              "read_for_pleasure_pct": "number",
+              "survey_sample_n": "number"
+            }
+          }
+        },
+        "key": "state",
+        "fields": ["read_for_pleasure_pct", "survey_sample_n"]
+      }
+    }
+  ],
+  "projection": {
+    "type": "mercator"
+  },
+  "mark": {
+    "type": "geoshape",
+    "stroke": "#FFFFFF",
+    "strokeWidth": 1.5
+  },
+  "encoding": {
+    "color": {
+      "field": "read_for_pleasure_pct",
+      "type": "quantitative",
+      "scale": {
+        "domain": [65, 80],
+        "range": ["#E7EEE4", "#214D3F"]
+      },
+      "legend": {
+        "title": "Read for pleasure (%)",
+        "orient": "bottom",
+        "gradientLength": 280,
+        "labelFontSize": 12,
+        "titleFontSize": 13
+      }
+    },
+    "tooltip": [
+      {
+        "field": "state",
+        "type": "nominal",
+        "title": "State or territory"
+      },
+      {
+        "field": "read_for_pleasure_pct",
+        "type": "quantitative",
+        "format": ".1f",
+        "title": "Read for pleasure (%)"
+      },
+      {
+        "field": "survey_sample_n",
+        "type": "quantitative",
+        "format": ",d",
+        "title": "Survey sample (n)"
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "legend": {
+      "labelColor": "#29332F",
+      "titleColor": "#29332F"
+    }
+  }
+}
