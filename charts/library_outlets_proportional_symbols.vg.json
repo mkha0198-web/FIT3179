@@ -125,12 +125,16 @@
               2500
             ]
           },
+          
           "legend": {
-            "title": "Library service points",
-            "orient": "bottom",
-            "labelFontSize": 12,
-            "titleFontSize": 13
+              "title": "Library service points",
+              "orient": "bottom",
+              "values": [100, 200, 300, 400, 500],
+              "labelFontSize": 10,
+              "titleFontSize": 11,
+              "offset": -8
           }
+
         },
         "tooltip": [
           {

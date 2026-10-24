@@ -63,8 +63,10 @@
           },
           "axis": {
             "title": "Millions of items",
-            "values": [0, 10, 20, 30],
-            "grid": false
+            "values": [0, 10, 20, 30, 35],
+            "grid": true,
+            "gridColor": "#DED8CE",
+            "gridOpacity": 0.8
           }
         },
 
@@ -156,8 +158,10 @@
           },
           "axis": {
             "title": "Millions of items",
-            "values": [0, 10, 20, 30],
-            "grid": false
+            "values": [0, 10, 20, 30, 35],
+            "grid": true,
+            "gridColor": "#DED8CE",
+            "gridOpacity": 0.8
           }
         },
 

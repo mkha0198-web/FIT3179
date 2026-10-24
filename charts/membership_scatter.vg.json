@@ -44,7 +44,7 @@
         "domain": [5, 7]
       },
       "axis": {
-        "title": "Collection usage per person",
+        "title": "Library collection uses per person (per year)",
         "values": [5, 5.5, 6, 6.5, 7],
         "labelFontSize": 12,
         "titleFontSize": 13,
@@ -107,7 +107,13 @@
       }
     },
 
+    
     {
+      "transform": [
+        {
+          "filter": "datum.financial_year != '2023-24' && datum.financial_year != '2023–24'"
+        }
+      ],
       "mark": {
         "type": "text",
         "dy": -20,
@@ -121,7 +127,28 @@
           "type": "nominal"
         }
       }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.financial_year == '2023-24' || datum.financial_year == '2023–24'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "dy": -12,
+        "fontSize": 15,
+        "fontWeight": "bold",
+        "color": "#29332F"
+      },
+      "encoding": {
+        "text": {
+          "field": "financial_year",
+          "type": "nominal"
+        }
+      }
     }
+
   ],
 
   "config": {
