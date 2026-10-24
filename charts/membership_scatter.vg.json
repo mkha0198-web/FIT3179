@@ -110,8 +110,8 @@
     {
       "mark": {
         "type": "text",
-        "dy": -16,
-        "fontSize": 12,
+        "dy": -20,
+        "fontSize": 15,
         "fontWeight": "bold",
         "color": "#29332F"
       },

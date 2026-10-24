@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Percentage of people aged 15+ reading books for pleasure across Australian states and territories in 2025 (Creative Australia, National Arts Participation Survey 2025).",
-  "width": 690,
-  "height": 460,
+  "width": 490,
+  "height": 390,
   "background": "#F8F5EF",
   "data": {
     "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/master/states.geojson",

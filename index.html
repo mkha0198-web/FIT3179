@@ -27,19 +27,60 @@
 
     <main>
 
-        <!-- Section 1: Waffle Chart -->
+        
+        <!-- Section 1: Reading Participation and State Map -->
         <section>
-            <h2>01 — A Nation of Readers</h2>
+            
+            <div class="section-title-row">
+                <h2>01 — A Nation of Readers</h2>
+
+                <div class="reading-ring"
+                    role="img"
+                    aria-label="69% of Australians aged 15 and over read books for pleasure in 2025">
+                    <span>69%</span>
+                </div>
+            </div>
 
             <p>
-                In 2025, approximately 69% of Australians
-                aged 15 and over read books for pleasure.
-                But what does this tell us about Australia's
-                reading habbits?
+                In 2025, approximately 69% of Australians aged 15
+                and over read books for pleasure. But how does
+                reading participation differ across Australia?
             </p>
 
-            <div id="waffle_chart"></div>
+            <div class="chart-pair">
+
+                <div class="chart-panel">
+                    <h3>Australia Overall</h3>
+                    <p class="chart-description">
+                        Reading participation among people aged 15+.
+                    </p>
+
+                    <div class="chart-visual" id="waffle_chart"></div>
+
+                    <p class="chart-note">
+                        Each square represents approximately 1%
+                        of Australians aged 15+.
+                    </p>
+                </div>
+
+                <div class="chart-panel">
+                    <h3>Reading Across the States</h3>
+                    <p class="chart-description">
+                        Percentage reading for pleasure in 2025.
+                    </p>
+
+                    <div class="chart-visual" id="reading_state_map"></div>
+
+                    <p class="chart-note">
+                        Source: Creative Australia, National Arts
+                        Participation Survey 2025.
+                        Figures are survey estimates.
+                    </p>
+                </div>
+
+            </div>
         </section>
+
 
         <!-- Section 2: Heatmap -->
         <section>
@@ -52,21 +93,68 @@
             </p>
 
             <div id="genre_heatmap"></div>
+
+            <p class="heatmap-insight">
+                <strong>Key finding:</strong>
+                The highest value is 54.6% for Australians aged
+                65+ reading novels or short stories.
+                Percentages represent people within each age group,
+                and respondents could select multiple genres.
+            </p>
+
         </section>
 
-        <!-- Section 3: Butterfly Chart -->
+        
+        <!-- Section 3: Digital Bookshelf and Library Map -->
         <section>
             <h2>03 — The Digital Bookshelf</h2>
 
             <p>
                 Australian public libraries are evolving.
-                Digital collections have expanded,
-                changing the balance between physical
-                and digital library holdings.
+                Digital collections have expanded, changing
+                the balance between physical and digital holdings.
+                But how are library services distributed
+                across Australia?
             </p>
 
-            <div id="collections_butterfly"></div>
+            <div class="chart-pair">
+
+                <div class="chart-panel">
+                    <h3>Physical vs Digital Collections</h3>
+                    <p class="chart-description">
+                        Changes in library holdings from
+                        2020–21 to 2024–25.
+                    </p>
+
+                    <div class="chart-visual"
+                        id="collections_butterfly"></div>
+
+                    <p class="chart-note">
+                        Physical and digital collection holdings
+                        are measured in millions of items.
+                    </p>
+                </div>
+
+                <div class="chart-panel">
+                    <h3>Libraries Across Australia</h3>
+                    <p class="chart-description">
+                        Reported public library service points
+                        by state and territory in 2024–25.
+                    </p>
+
+                    <div class="chart-visual"
+                        id="library_outlets_map"></div>
+
+                    <p class="chart-note">
+                        Circles represent total service points,
+                        not individual library locations.
+                        Source: ALIA/NSLA, 2024–25.
+                    </p>
+                </div>
+
+            </div>
         </section>
+
 
         <!-- Section 4: Connected Scatterplot -->
         <section>
@@ -83,52 +171,7 @@
         </section>
 
 
-        <!-- Section 05: Reading Across Australia -->
-        <section>
-            <h2>05 — Where Does Australia Read?</h2>
-
-            <p>
-                Reading habits vary across Australia's states and territories.
-                This map shows the percentage of Australians aged 15 and over
-                who read books for pleasure in 2025. Darker green represents
-                higher reading participation.
-            </p>
-
-            <div id="reading_state_map"></div>
-
-            <p>
-                Source: Creative Australia, National Arts Participation
-                Survey 2025. Figures are survey estimates.
-            </p>
-        </section>
-
-
-        <!-- Section 06: Public Libraries Across Australia -->
-        <section>
-            <h2>06 — Where Are Australia's Public Libraries?</h2>
-
-            <p>
-                Public libraries provide access to books and digital
-                resources across Australia. This map compares the number
-                of reported public library service points in each state
-                and territory during 2024–25.
-
-                Larger circles represent more service points.
-            </p>
-
-            <div id="library_outlets_map"></div>
-
-            <p>
-                Note: Circles are positioned within each state for
-                comparison, not at individual library locations.
-                Counts include branches, mobile libraries and other outlets.
-            </p>
-
-            <p>
-                Source: ALIA/NSLA, Australian Public Libraries
-                Statistical Report 2024–25.
-            </p>
-        </section>
+        
 
 
 

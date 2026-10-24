@@ -24,11 +24,39 @@
     }
   ],
 
-  "mark": {
-    "type": "rect",
-    "stroke": "#F8F5EF",
-    "strokeWidth": 3
-  },
+  
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "#F8F5EF",
+        "strokeWidth": 3
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.age_group == '65+' && datum.genre == 'A novel or short story'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 16,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "text": {
+          "field": "percentage",
+          "type": "quantitative",
+          "format": ".1f"
+        },
+        "color": {
+          "value": "#FFFFFF"
+        }
+      }
+    }
+  ],
+
 
   "encoding": {
     "x": {
