@@ -90,3 +90,12 @@ vegaEmbed(
 ).catch(error => {
     console.error('Error loading author treemap:', error);
 });
+
+// Chart 09: Favourite Australian Books by State
+vegaEmbed(
+    '#state_book_winners_map',
+    'charts/state_favourite_book.vg.json',
+    { actions: false }
+).catch(error => {
+    console.error('Error loading favourite books map:', error);
+});

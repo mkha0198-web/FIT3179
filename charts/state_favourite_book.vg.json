@@ -1,0 +1,287 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "ABC Radio National 2026 favourite Australian book by state or territory (only winning books reported). Australian regions on left, geographically enlarged ACT on right.",
+  "background": "#F8F5EF",
+  "hconcat": [
+    {
+      "width": 625,
+      "height": 425,
+      "projection": {
+        "type": "mercator"
+      },
+      "layer": [
+        {
+          "data": {
+            "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/master/states.geojson",
+            "format": {
+              "type": "json",
+              "property": "features"
+            }
+          },
+          "transform": [
+            {
+              "calculate": "datum.properties.STATE_NAME",
+              "as": "state"
+            },
+            {
+              "lookup": "state",
+              "from": {
+                "data": {
+                  "url": "data/abc_2026_state_book_winners_map.csv",
+                  "format": {
+                    "type": "csv",
+                    "parse": {
+                      "longitude": "number",
+                      "latitude": "number",
+                      "poll_year": "number"
+                    }
+                  }
+                },
+                "key": "state",
+                "fields": [
+                  "state_code",
+                  "favourite_book",
+                  "book_author"
+                ]
+              }
+            }
+          ],
+          "mark": {
+            "type": "geoshape",
+            "stroke": "#F8F5EF",
+            "strokeWidth": 1.8
+          },
+          "encoding": {
+            "color": {
+              "field": "favourite_book",
+              "type": "nominal",
+              "scale": {
+                "domain": [
+                  "Cloudstreet",
+                  "The Book Thief",
+                  "Boy Swallows Universe"
+                ],
+                "range": [
+                  "#4F8271",
+                  "#B58A4A",
+                  "#855536"
+                ]
+              },
+              "legend": {
+                "title": "State / territory winning book",
+                "orient": "bottom",
+                "symbolType": "square",
+                "labelFontSize": 11,
+                "titleFontSize": 12,
+                "labelLimit": 190,
+                "columns": 3
+              }
+            },
+            "tooltip": [
+              {
+                "field": "state",
+                "type": "nominal",
+                "title": "State / territory"
+              },
+              {
+                "field": "favourite_book",
+                "type": "nominal",
+                "title": "Most-voted book"
+              },
+              {
+                "field": "book_author",
+                "type": "nominal",
+                "title": "Author"
+              }
+            ]
+          }
+        },
+        {
+          "data": {
+            "url": "data/abc_2026_state_book_winners_map.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "longitude": "number",
+                "latitude": "number",
+                "poll_year": "number"
+              }
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.state_code != 'ACT'"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "text": "📖",
+            "fontSize": 24,
+            "baseline": "middle",
+            "align": "center"
+          },
+          "encoding": {
+            "longitude": {
+              "field": "longitude",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "latitude",
+              "type": "quantitative"
+            },
+            "tooltip": [
+              {
+                "field": "state",
+                "type": "nominal",
+                "title": "State / territory"
+              },
+              {
+                "field": "favourite_book",
+                "type": "nominal",
+                "title": "Most-voted book"
+              },
+              {
+                "field": "book_author",
+                "type": "nominal",
+                "title": "Author"
+              }
+            ]
+          }
+        },
+        {
+          "data": {
+            "url": "data/abc_2026_state_book_winners_map.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "longitude": "number",
+                "latitude": "number",
+                "poll_year": "number"
+              }
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.state_code != 'ACT'"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "fontSize": 13,
+            "fontWeight": "bold",
+            "dy": 24,
+            "color": "#1B332B",
+            "stroke": "#F8F5EF",
+            "strokeWidth": 1.1
+          },
+          "encoding": {
+            "longitude": {
+              "field": "longitude",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "latitude",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "state_code",
+              "type": "nominal"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 160,
+      "height": 210,
+      "title": {
+        "text": "ACT — enlarged",
+        "font": "Georgia",
+        "fontSize": 15,
+        "color": "#214D3F"
+      },
+      "projection": {
+        "type": "mercator"
+      },
+      "layer": [
+        {
+          "data": {
+            "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/master/states.geojson",
+            "format": {
+              "type": "json",
+              "property": "features"
+            }
+          },
+          "transform": [
+            {
+              "calculate": "datum.properties.STATE_NAME",
+              "as": "state"
+            },
+            {
+              "filter": "datum.state == 'Australian Capital Territory'"
+            },
+            {
+              "lookup": "state",
+              "from": {
+                "data": {
+                  "url": "data/abc_2026_state_book_winners_map.csv",
+                  "format": {
+                    "type": "csv"
+                  }
+                },
+                "key": "state",
+                "fields": [
+                  "favourite_book",
+                  "book_author"
+                ]
+              }
+            }
+          ],
+          "mark": {
+            "type": "geoshape",
+            "color": "#B58A4A",
+            "stroke": "#214D3F",
+            "strokeWidth": 2.2
+          },
+          "encoding": {
+            "tooltip": [
+              {
+                "field": "state",
+                "type": "nominal",
+                "title": "State / territory"
+              },
+              {
+                "field": "favourite_book",
+                "type": "nominal",
+                "title": "Most-voted book"
+              },
+              {
+                "field": "book_author",
+                "type": "nominal",
+                "title": "Author"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "spacing": 20,
+  "resolve": {
+    "scale": {
+      "color": "independent"
+    }
+  },
+  "config": {
+    "view": {
+      "stroke": "transparent"
+    },
+    "legend": {
+      "labelColor": "#29332F",
+      "titleColor": "#29332F"
+    },
+    "title": {
+      "anchor": "middle"
+    }
+  }
+}
