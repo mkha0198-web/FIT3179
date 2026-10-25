@@ -1,0 +1,195 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "True treemap of repeat-author appearances in ABC Radio National 2026 Top 100 Australian Books. Data counts books, not votes. Authors with 2+ ranked books only.",
+  "width": 900,
+  "height": 455,
+  "padding": 6,
+  "autosize": "pad",
+  "background": "#F8F5EF",
+  "data": [
+    {
+      "name": "tree",
+      "url": "data/abc_2026_repeat_authors_treemap.csv",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "book_count": "number",
+          "best_rank": "number"
+        }
+      },
+      "transform": [
+        {
+          "type": "formula",
+          "as": "parent",
+          "expr": "datum.author === '__ROOT__' ? null : '__ROOT__'"
+        },
+        {
+          "type": "stratify",
+          "key": "author",
+          "parentKey": "parent"
+        },
+        {
+          "type": "treemap",
+          "field": "book_count",
+          "sort": {
+            "field": "book_count",
+            "order": "descending"
+          },
+          "method": "squarify",
+          "ratio": 1.35,
+          "size": [
+            {
+              "signal": "width"
+            },
+            {
+              "signal": "height"
+            }
+          ],
+          "paddingInner": 5,
+          "paddingOuter": 3
+        }
+      ]
+    },
+    {
+      "name": "leaves",
+      "source": "tree",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "!datum.children"
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "shade",
+      "type": "linear",
+      "domain": [
+        2,
+        4
+      ],
+      "range": [
+        "#5D8979",
+        "#214D3F"
+      ],
+      "zero": false
+    }
+  ],
+  "marks": [
+    {
+      "type": "rect",
+      "from": {
+        "data": "leaves"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "field": "x0"
+          },
+          "y": {
+            "field": "y0"
+          },
+          "x2": {
+            "field": "x1"
+          },
+          "y2": {
+            "field": "y1"
+          },
+          "fill": {
+            "scale": "shade",
+            "field": "book_count"
+          },
+          "stroke": {
+            "value": "#F8F5EF"
+          },
+          "strokeWidth": {
+            "value": 2
+          },
+          "cornerRadius": {
+            "value": 5
+          },
+          "tooltip": {
+            "signal": "{'Author': datum.author, 'Books in Top 100': datum.book_count, 'Best rank': '#' + datum.best_rank, 'Ranked titles': datum.books_and_abc_ranks}"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "leaves"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "(datum.x0 + datum.x1)/2"
+          },
+          "y": {
+            "signal": "(datum.y0 + datum.y1)/2 - 11"
+          },
+          "text": {
+            "field": "author"
+          },
+          "font": {
+            "value": "Georgia"
+          },
+          "fontSize": {
+            "signal": "datum.book_count >= 3 ? 19 : 15"
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#FFFFFF"
+          },
+          "align": {
+            "value": "center"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "limit": {
+            "signal": "max(45,datum.x1 - datum.x0 - 10)"
+          }
+        }
+      },
+      "interactive": false
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "leaves"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "(datum.x0 + datum.x1)/2"
+          },
+          "y": {
+            "signal": "(datum.y0 + datum.y1)/2 + 16"
+          },
+          "text": {
+            "signal": "datum.book_count + ' books'"
+          },
+          "font": {
+            "value": "Arial"
+          },
+          "fontSize": {
+            "value": 13
+          },
+          "fill": {
+            "value": "#FFFFFF"
+          },
+          "align": {
+            "value": "center"
+          },
+          "baseline": {
+            "value": "middle"
+          }
+        }
+      },
+      "interactive": false
+    }
+  ]
+}

@@ -79,3 +79,14 @@ vegaEmbed(
 ).catch(error => {
     console.error('Error loading author birthplace map:', error);
 });
+
+// Chart 08: Australia's Most-Represented Authors — Treemap
+vegaEmbed(
+    '#author_treemap',
+    'charts/author_treemap.vg.json',
+    {
+        actions: false
+    }
+).catch(error => {
+    console.error('Error loading author treemap:', error);
+});
