@@ -99,3 +99,14 @@ vegaEmbed(
 ).catch(error => {
     console.error('Error loading favourite books map:', error);
 });
+
+// Chart 10: Books Through the Years — Beeswarm
+vegaEmbed(
+    '#publication_year_beeswarm',
+    'charts/publication_year_beeswarm_genres.vg.json',
+    {
+        actions: false
+    }
+).catch(error => {
+    console.error('Error loading publication beeswarm:', error);
+});

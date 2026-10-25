@@ -1,0 +1,67 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "First publication years of books in ABC Radio National's 2026 Top 100 Australian Books.",
+  "width": 810,
+  "height": 310,
+  "background": "#F8F5EF",
+  "data": {
+    "url": "data/abc_2026_top100_publication_beeswarm.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "abc_rank": "number",
+        "publication_year": "number",
+        "swarm_y": "number"
+      }
+    }
+  },
+  "mark": {
+    "type": "circle",
+    "filled": true,
+    "size": 115,
+    "opacity": 0.95,
+    "stroke": "#F8F5EF",
+    "strokeWidth": 1
+  },
+  "encoding": {
+    "x": {
+      "field": "publication_year",
+      "type": "quantitative",
+      "scale": { "domain": [1865, 2030], "nice": false },
+      "axis": {
+        "title": "First publication year",
+        "values": [1870, 1890, 1910, 1930, 1950, 1970, 1990, 2010, 2030],
+        "format": "d",
+        "grid": true,
+        "gridColor": "#E3DED3",
+        "labelFontSize": 12,
+        "titleFontSize": 14
+      }
+    },
+    "y": {
+      "field": "swarm_y",
+      "type": "quantitative",
+      "scale": { "domain": [-160, 160] },
+      "axis": null
+    },
+    "color": {
+      "condition": { "test": "datum.abc_rank <= 10", "value": "#B58A4A" },
+      "value": "#214D3F"
+    },
+    "tooltip": [
+      { "field": "title", "type": "nominal", "title": "Book" },
+      { "field": "author", "type": "nominal", "title": "Author" },
+      { "field": "publication_year", "type": "quantitative", "title": "First published", "format": "d" },
+      { "field": "abc_rank", "type": "quantitative", "title": "ABC rank (2026)", "format": "d" }
+    ]
+  },
+  "config": {
+    "view": { "stroke": "transparent" },
+    "axis": {
+      "labelColor": "#29332F",
+      "titleColor": "#29332F",
+      "domainColor": "#B8B0A4",
+      "tickColor": "#B8B0A4"
+    }
+  }
+}

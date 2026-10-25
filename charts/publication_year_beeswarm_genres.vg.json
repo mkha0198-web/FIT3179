@@ -1,0 +1,173 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Publication-year beeswarm: broad editorial primary genres (colour) and ABC National Top 10 (gold outline). Every dot represents one ranked book. Genres are analyst-assigned, not ABC official categories.",
+  "width": 810,
+  "height": 310,
+  "background": "#F8F5EF",
+  "data": {
+    "url": "data/abc_2026_top100_publication_beeswarm_genres.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "abc_rank": "number",
+        "publication_year": "number",
+        "swarm_y": "number"
+      }
+    }
+  },
+  "mark": {
+    "type": "circle",
+    "filled": true,
+    "opacity": 0.95
+  },
+  "encoding": {
+    "x": {
+      "field": "publication_year",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          1865,
+          2030
+        ],
+        "nice": false
+      },
+      "axis": {
+        "title": "First publication year",
+        "values": [
+          1870,
+          1890,
+          1910,
+          1930,
+          1950,
+          1970,
+          1990,
+          2010,
+          2030
+        ],
+        "format": "d",
+        "grid": true,
+        "gridColor": "#E3DED3",
+        "labelFontSize": 12,
+        "titleFontSize": 14
+      }
+    },
+    "y": {
+      "field": "swarm_y",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          -160,
+          160
+        ]
+      },
+      "axis": null
+    },
+    "color": {
+      "field": "primary_genre",
+      "type": "nominal",
+      "title": "Primary genre(approx)",
+      "scale": {
+        "domain": [
+          "Literary / contemporary fiction",
+          "Historical fiction",
+          "Crime / mystery / thriller",
+          "Children’s / young adult",
+          "Memoir / biography",
+          "Nonfiction / reference",
+          "Speculative / dystopian",
+          "Poetry"
+        ],
+        "range": [
+          "#214D3F",
+          "#855536",
+          "#587D98",
+          "#52A878",
+          "#88677D",
+          "#878245",
+          "#277A83",
+          "#BA8470"
+        ]
+      },
+      "legend": {
+        "orient": "bottom",
+        "columns": 2,
+        "direction": "horizontal",
+        "labelFontSize": 15,
+        "titleFontSize": 16,
+        "symbolSize": 100,
+        "labelLimit": 270,
+        "offset": 18
+      }
+    },
+    "size": {
+      "condition": {
+        "test": "datum.abc_rank <= 10",
+        "value": 185
+      },
+      "value": 105
+    },
+    "stroke": {
+      "condition": {
+        "test": "datum.abc_rank <= 10",
+        "value": "#B58A4A"
+      },
+      "value": "#F8F5EF"
+    },
+    "strokeWidth": {
+      "condition": {
+        "test": "datum.abc_rank <= 10",
+        "value": 3
+      },
+      "value": 0.8
+    },
+    "tooltip": [
+      {
+        "field": "title",
+        "type": "nominal",
+        "title": "Book"
+      },
+      {
+        "field": "author",
+        "type": "nominal",
+        "title": "Author"
+      },
+      {
+        "field": "primary_genre",
+        "type": "nominal",
+        "title": "Primary genre"
+      },
+      {
+        "field": "publication_year",
+        "type": "quantitative",
+        "title": "First published",
+        "format": "d"
+      },
+      {
+        "field": "abc_rank",
+        "type": "quantitative",
+        "title": "ABC rank (2026)",
+        "format": "d"
+      },
+      {
+        "field": "rank_group",
+        "type": "nominal",
+        "title": "Ranking group"
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": "transparent"
+    },
+    "axis": {
+      "labelColor": "#29332F",
+      "titleColor": "#29332F",
+      "domainColor": "#B8B0A4",
+      "tickColor": "#B8B0A4"
+    },
+    "legend": {
+      "labelColor": "#29332F",
+      "titleColor": "#29332F"
+    }
+  }
+}
