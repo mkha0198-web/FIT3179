@@ -68,3 +68,14 @@ vegaEmbed(
 ).catch(error => {
     console.error('Error loading library outlets map:', error);
 });
+
+// Chart 07: Australian Authors — Geographic Point-Location Map
+vegaEmbed(
+    '#author_birthplace_map',
+    'charts/author_birthplace_pointmap.vg.json',
+    {
+        actions: false
+    }
+).catch(error => {
+    console.error('Error loading author birthplace map:', error);
+});

@@ -1,0 +1,98 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Approximate city-centre birthplaces of selected Australia-born authors from ABC Radio National 2026 Top 100 Australian Books; authors born overseas are not shown; multiple authors born within a city share one marker.",
+  "width": 680,
+  "height": 440,
+  "background": "#F8F5EF",
+  "projection": {
+    "type": "mercator"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/master/states.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#E6EAE1",
+        "stroke": "#F8F5EF",
+        "strokeWidth": 1.6
+      }
+    },
+    {
+      "data": {
+        "url": "data/abc_2026_author_birthplace_map_points.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "latitude": "number",
+            "longitude": "number",
+            "n_authors": "number"
+          }
+        }
+      },
+      "mark": {
+        "type": "circle",
+        "size": 140,
+        "color": "#B58A4A",
+        "stroke": "#214D3F",
+        "strokeWidth": 1.8,
+        "opacity": 0.85,
+        "cursor": "pointer"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "city",
+            "type": "nominal",
+            "title": "Birthplace (approx. city)"
+          },
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "n_authors",
+            "type": "quantitative",
+            "title": "Featured authors"
+          },
+          {
+            "field": "authors",
+            "type": "nominal",
+            "title": "Author(s)"
+          },
+          {
+            "field": "abc_books_with_ranks",
+            "type": "nominal",
+            "title": "ABC-ranked book(s)"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": "transparent"
+    },
+    "axis": {
+      "labelColor": "#29332F"
+    },
+    "legend": {
+      "labelColor": "#29332F",
+      "titleColor": "#29332F"
+    }
+  }
+}

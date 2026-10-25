@@ -1,0 +1,9 @@
+state,state_code,tile_col,tile_row,favourite_book,book_author,poll_year
+Western Australia,WA,0,1,Cloudstreet,Tim Winton,2026
+Northern Territory,NT,1,0,Cloudstreet,Tim Winton,2026
+South Australia,SA,1,1,The Book Thief,Markus Zusak,2026
+Queensland,QLD,2,0,Boy Swallows Universe,Trent Dalton,2026
+New South Wales,NSW,2,1,Cloudstreet,Tim Winton,2026
+Victoria,VIC,2,2,Cloudstreet,Tim Winton,2026
+Australian Capital Territory,ACT,3,1,The Book Thief,Markus Zusak,2026
+Tasmania,TAS,2,3,Cloudstreet,Tim Winton,2026
