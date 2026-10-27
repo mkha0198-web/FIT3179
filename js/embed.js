@@ -141,3 +141,19 @@ vegaEmbed(
 ).catch(error => {
     console.error('Error loading publication beeswarm:', error);
 });
+
+ // Chart 11: Books That Connect Generations
+ // Bipartite Network Diagram
+
+vegaEmbed(
+    '#books_generation_network',
+    'charts/books_by_generation_network.vg.json',
+    {
+        actions: false
+    }
+).catch(error => {
+    console.error(
+        'Error loading generation network:',
+        error
+    );
+});

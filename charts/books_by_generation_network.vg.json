@@ -1,0 +1,394 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Bipartite node-link diagram connecting age groups to their three highest-ranked books in ABC Radio National's 2026 poll; links encode rank, not vote count.",
+  "width": 930,
+  "height": 460,
+  "background": "#F8F5EF",
+  "padding": {
+    "left": 5,
+    "right": 4,
+    "top": 14,
+    "bottom": 5
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/abc_2026_top_books_by_voter_age.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "age_group_rank": "number",
+            "poll_year": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "calculate": "datum.voter_age_group === '35 and under' ? 6.45 : datum.voter_age_group === '36-45' ? 4.75 : datum.voter_age_group === '46-60' ? 3.05 : 1.35",
+          "as": "age_y"
+        },
+        {
+          "calculate": "datum.favourite_book === 'The Book Thief' ? 7.20 : datum.favourite_book === 'Tomorrow, When the War Began' ? 6.15 : datum.favourite_book === 'Possum Magic' ? 5.10 : datum.favourite_book === 'Looking for Alibrandi' ? 4.05 : datum.favourite_book === 'Cloudstreet' ? 3.00 : datum.favourite_book === 'Boy Swallows Universe' ? 1.95 : 0.90",
+          "as": "book_y"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 3,
+        "opacity": 0.73
+      },
+      "encoding": {
+        "x": {
+          "datum": 0.2,
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              1
+            ]
+          },
+          "axis": null
+        },
+        "x2": {
+          "datum": 0.67
+        },
+        "y": {
+          "field": "age_y",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              8
+            ]
+          },
+          "axis": null
+        },
+        "y2": {
+          "field": "book_y"
+        },
+        "color": {
+          "field": "age_group_rank",
+          "type": "ordinal",
+          "scale": {
+            "domain": [
+              1,
+              2,
+              3
+            ],
+            "range": [
+              "#B58A4A",
+              "#214D3F",
+              "#855536"
+            ]
+          },
+          "legend": {
+            "title": "Rank within age group",
+            "labelExpr": "datum.value == 1 ? '1ˢᵗ' : datum.value == 2 ? '2ⁿᵈ' : '3ʳᵈ'",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "values": [
+              1,
+              2,
+              3
+            ],
+            "labelFontSize": 15,
+            "titleFontSize": 16,
+            "symbolStrokeWidth": 4
+          }
+        },
+        "tooltip": [
+          {
+            "field": "voter_age_group",
+            "type": "nominal",
+            "title": "Age group"
+          },
+          {
+            "field": "favourite_book",
+            "type": "nominal",
+            "title": "Book"
+          },
+          {
+            "field": "age_group_rank",
+            "type": "ordinal",
+            "title": "Rank within age group"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "age": "35 and under",
+            "position": 6.45
+          },
+          {
+            "age": "36-45",
+            "position": 4.75
+          },
+          {
+            "age": "46-60",
+            "position": 3.05
+          },
+          {
+            "age": "61+",
+            "position": 1.35
+          }
+        ]
+      },
+      "mark": {
+        "type": "circle",
+        "size": 330,
+        "fill": "#214D3F",
+        "stroke": "#F8F5EF",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "x": {
+          "datum": 0.2,
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              1
+            ]
+          },
+          "axis": null
+        },
+        "y": {
+          "field": "position",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              8
+            ]
+          },
+          "axis": null
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "book": "The Book Thief",
+            "position": 7.2
+          },
+          {
+            "book": "Tomorrow, When the War Began",
+            "position": 6.15
+          },
+          {
+            "book": "Possum Magic",
+            "position": 5.1
+          },
+          {
+            "book": "Looking for Alibrandi",
+            "position": 4.05
+          },
+          {
+            "book": "Cloudstreet",
+            "position": 3.0
+          },
+          {
+            "book": "Boy Swallows Universe",
+            "position": 1.95
+          },
+          {
+            "book": "A Fortunate Life",
+            "position": 0.9
+          }
+        ]
+      },
+      "mark": {
+        "type": "circle",
+        "size": 330,
+        "fill": "#B58A4A",
+        "stroke": "#214D3F",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "x": {
+          "datum": 0.67,
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              1
+            ]
+          },
+          "axis": null
+        },
+        "y": {
+          "field": "position",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              8
+            ]
+          },
+          "axis": null
+        },
+        "tooltip": [
+          {
+            "field": "book",
+            "type": "nominal",
+            "title": "Book title"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "age": "35 and under",
+            "position": 6.45
+          },
+          {
+            "age": "36-45",
+            "position": 4.75
+          },
+          {
+            "age": "46-60",
+            "position": 3.05
+          },
+          {
+            "age": "61+",
+            "position": 1.35
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -16,
+        "font": "Georgia",
+        "fontWeight": "bold",
+        "fontSize": 15,
+        "color": "#214D3F"
+      },
+      "encoding": {
+        "x": {
+          "datum": 0.2,
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              1
+            ]
+          },
+          "axis": null
+        },
+        "y": {
+          "field": "position",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              8
+            ]
+          },
+          "axis": null
+        },
+        "text": {
+          "field": "age",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "book": "The Book Thief",
+            "position": 7.2
+          },
+          {
+            "book": "Tomorrow, When the War Began",
+            "position": 6.15
+          },
+          {
+            "book": "Possum Magic",
+            "position": 5.1
+          },
+          {
+            "book": "Looking for Alibrandi",
+            "position": 4.05
+          },
+          {
+            "book": "Cloudstreet",
+            "position": 3.0
+          },
+          {
+            "book": "Boy Swallows Universe",
+            "position": 1.95
+          },
+          {
+            "book": "A Fortunate Life",
+            "position": 0.9
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 15,
+        "font": "Georgia",
+        "fontSize": 14,
+        "color": "#29332F"
+      },
+      "encoding": {
+        "x": {
+          "datum": 0.67,
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              1
+            ]
+          },
+          "axis": null
+        },
+        "y": {
+          "field": "position",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              8
+            ]
+          },
+          "axis": null
+        },
+        "text": {
+          "field": "book",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "resolve": {
+    "scale": {
+      "x": "shared",
+      "y": "shared"
+    }
+  },
+  "config": {
+    "view": {
+      "stroke": "transparent"
+    },
+    "legend": {
+      "labelColor": "#29332F",
+      "titleColor": "#29332F"
+    },
+    "axis": {
+      "labelColor": "#29332F",
+      "titleColor": "#29332F"
+    }
+  }
+}

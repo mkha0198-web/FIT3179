@@ -1260,3 +1260,35 @@ main h2[id] {
         margin-top: 15px;
     }
 }
+
+/* Website authorship and AI acknowledgement */
+
+.website-credits {
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid #D9CFC0;
+}
+
+.website-credits p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #756A5E;
+    margin: 0 0 10px;
+    max-width: 850px;
+}
+
+.website-credits strong {
+    color: #214D3F;
+}
+
+/* Footer source links */
+footer a {
+    color: #214D3F;
+    text-decoration: underline;
+    text-decoration-color: #B58A4A;
+    text-underline-offset: 3px;
+}
+
+footer a:hover {
+    color: #855536;
+}
