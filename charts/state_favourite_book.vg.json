@@ -4,8 +4,8 @@
   "background": "#F8F5EF",
   "hconcat": [
     {
-      "width": 625,
-      "height": 425,
+      "width": 900,
+      "height": 560,
       "projection": {
         "type": "mercator"
       },
@@ -205,8 +205,8 @@
       ]
     },
     {
-      "width": 160,
-      "height": 210,
+      "width": 140,
+      "height": 190,
       "title": {
         "text": "ACT — enlarged",
         "font": "Georgia",

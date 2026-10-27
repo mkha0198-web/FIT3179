@@ -164,7 +164,98 @@
                 between age groups in 2025.
             </p>
 
-            <div id="genre_heatmap"></div>
+            <div class="heatmap-layout">
+
+                <!-- Existing heatmap -->
+                <div class="heatmap-chart">
+                    <div id="genre_heatmap"></div>
+                </div>
+
+                <!-- Compact comparison dropdown -->
+                <details class="heatmap-dropdown">
+                    <summary>
+                        <span>A Tale of Two Generations</span>
+                        <small>Compare ages 15–24 and 65+</small>
+                    </summary>
+
+                    <div class="heatmap-dropdown-content">
+
+                        <div class="compare-key">
+                            <span><i class="young-key"></i>15–24</span>
+                            <span><i class="older-key"></i>65+</span>
+                        </div>
+
+                        <div class="compare-group">
+                            <strong>Novels / short stories</strong>
+                            <div class="compare-line">
+                                <span>15–24</span>
+                                <div class="compare-track">
+                                    <div class="compare-fill young" style="width:71%"></div>
+                                </div>
+                                <b>42.6%</b>
+                            </div>
+                            <div class="compare-line">
+                                <span>65+</span>
+                                <div class="compare-track">
+                                    <div class="compare-fill older" style="width:91%"></div>
+                                </div>
+                                <b>54.6%</b>
+                            </div>
+                        </div>
+
+                        <div class="compare-group">
+                            <strong>Graphic novels / comics</strong>
+                            <div class="compare-line">
+                                <span>15–24</span>
+                                <div class="compare-track">
+                                    <div class="compare-fill young" style="width:35%"></div>
+                                </div>
+                                <b>21.0%</b>
+                            </div>
+                            <div class="compare-line">
+                                <span>65+</span>
+                                <div class="compare-track">
+                                    <div class="compare-fill older" style="width:11.5%"></div>
+                                </div>
+                                <b>6.9%</b>
+                            </div>
+                        </div>
+
+                        <div class="compare-group">
+                            <strong>Plays</strong>
+                            <div class="compare-line">
+                                <span>15–24</span>
+                                <div class="compare-track">
+                                    <div class="compare-fill young" style="width:21.7%"></div>
+                                </div>
+                                <b>13.0%</b>
+                            </div>
+                            <div class="compare-line">
+                                <span>65+</span>
+                                <div class="compare-track">
+                                    <div class="compare-fill older" style="width:2.2%"></div>
+                                </div>
+                                <b>1.3%</b>
+                            </div>
+                        </div>
+
+                        <p class="compare-takeaway">
+                            <strong>~10×</strong>
+                            Younger Australians reported reading
+                            plays at approximately ten times
+                            the rate of those aged 65+.
+                        </p>
+
+                        <small class="compare-source">
+                            Bars share a 0–60% scale.
+                            Source: Creative Australia,
+                            NAPS 2025, Table 7.
+                        </small>
+
+                    </div>
+                </details>
+
+            </div>
 
             <div class="heatmap-insight">
 
@@ -325,8 +416,75 @@
                 has increased. Explore how these two
                 measures changed between 2020 and 2025.
             </p>
+  
+            <div class="trends-layout">
 
-            <div id="membership_scatter"></div>
+                <div class="trends-chart">
+                    <div id="membership_scatter"></div>
+                </div>
+
+                <details class="trends-sidebar">
+
+                    <summary>
+                        <span>Five Years in Focus</span>
+                        <small>2020–21 → 2024–25</small>
+                    </summary>
+
+
+                    <div class="trends-metric">
+                        <strong>Registered members</strong>
+                        <small>% of population</small>
+
+                        <div class="trends-values">
+                            <span>35.2%</span>
+                            <span class="trends-down">↘</span>
+                            <span>28.8%</span>
+                        </div>
+
+                        <p class="trends-down">
+                            −6.4 percentage points
+                        </p>
+                    </div>
+
+                    <div class="trends-metric">
+                        <strong>Collection uses</strong>
+                        <small>Per person, per year</small>
+
+                        <div class="trends-values">
+                            <span>5.6</span>
+                            <span class="trends-up">↗</span>
+                            <span>6.6</span>
+                        </div>
+
+                        <p class="trends-up">
+                            +17.9% increase
+                        </p>
+                    </div>
+
+                    <div class="trends-metric">
+                        <strong>Total recorded usage</strong>
+
+                        <div class="trends-big-number">
+                            +35.1m
+                        </div>
+
+                        <p>
+                            Additional reported collection
+                            transactions between the
+                            two endpoints.
+                        </p>
+                    </div>
+
+                    <p class="trends-caution">
+                        Transactions do not represent
+                        unique readers. Membership
+                        reporting definitions have
+                        changed over time.
+                    </p>
+
+                </details>
+
+            </div>
 
             <p class="scatter-direction">
                 <strong>Follow the years:</strong>
@@ -383,8 +541,73 @@
                 Hover over each gold marker to discover the
                 authors, their birthplaces and their ranked books.
             </p>
+          
+            <div class="author-map-layout">
 
-            <div id="author_birthplace_map"></div>
+                <div id="author_birthplace_map"></div>
+
+                <details class="author-map-dropdown">
+
+                    <summary>
+                        <span>Birthplace Hotspots</span>
+                        <small>Where featured authors were born</small>
+                    </summary>
+
+                    <div class="author-dropdown-content">
+
+                        <div class="author-location">
+                            <div class="author-location-label">
+                                <span>Melbourne area</span>
+                                <strong>7 authors</strong>
+                            </div>
+                            <div class="author-bar-track">
+                                <div class="author-bar" style="width:100%"></div>
+                            </div>
+                        </div>
+
+                        <div class="author-location">
+                            <div class="author-location-label">
+                                <span>Sydney</span>
+                                <strong>5 authors</strong>
+                            </div>
+                            <div class="author-bar-track">
+                                <div class="author-bar" style="width:71.4%"></div>
+                            </div>
+                        </div>
+
+                        <div class="author-location">
+                            <div class="author-location-label">
+                                <span>Perth</span>
+                                <strong>2 authors</strong>
+                            </div>
+                            <div class="author-bar-track">
+                                <div class="author-bar" style="width:28.6%"></div>
+                            </div>
+                        </div>
+
+                        <div class="author-map-totals">
+                            <div>
+                                <strong>30</strong>
+                                <span>Selected authors</span>
+                            </div>
+
+                            <div>
+                                <strong>19</strong>
+                                <span>Birthplace locations</span>
+                            </div>
+                        </div>
+
+                        <p>
+                            Melbourne includes grouped nearby
+                            localities. These figures describe
+                            only the selected Australia-born
+                            authors, not all Australian writers.
+                        </p>
+
+                    </div>
+                </details>
+
+            </div>
             
             <div class="chart-insight">
 

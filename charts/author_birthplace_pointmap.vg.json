@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Approximate city-centre birthplaces of selected Australia-born authors from ABC Radio National 2026 Top 100 Australian Books; authors born overseas are not shown; multiple authors born within a city share one marker.",
-  "width": 680,
-  "height": 440,
+  "width": 900,
+  "height": 560,
   "background": "#F8F5EF",
   "projection": {
     "type": "mercator"

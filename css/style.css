@@ -764,3 +764,499 @@ main h2[id] {
 .cloudstreet { background: #4F8271; }
 .book-thief { background: #B58A4A; }
 .boy-swallows { background: #855536; }
+
+
+/* ==========================================
+   HEATMAP — COMPACT GENERATION DROPDOWN
+   ========================================== */
+
+.heatmap-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 230px;
+    gap: 18px;
+    align-items: start;
+    margin-top: 25px;
+    max-width: 1100px;
+}
+
+.heatmap-chart {
+    min-width: 0;
+    overflow-x: auto;
+}
+
+.heatmap-dropdown {
+    background: #F0EAE0;
+    border: 1px solid #D9CFC0;
+    border-left: 4px solid #B58A4A;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+.heatmap-dropdown summary {
+    position: relative;
+    cursor: pointer;
+    padding: 15px 27px 15px 12px;
+    list-style: none;
+    color: #214D3F;
+    font-family: Georgia, serif;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.heatmap-dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+.heatmap-dropdown summary::after {
+    content: "⌄";
+    position: absolute;
+    top: 14px;
+    right: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 19px;
+    color: #855536;
+}
+
+.heatmap-dropdown[open] summary::after {
+    content: "⌃";
+}
+
+.heatmap-dropdown summary small {
+    display: block;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    color: #756A5E;
+    margin-top: 5px;
+}
+
+.heatmap-dropdown summary:focus-visible {
+    outline: 2px solid #214D3F;
+    outline-offset: -3px;
+}
+
+.heatmap-dropdown-content {
+    padding: 0 12px 15px;
+}
+
+.compare-key {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 11px;
+    margin-bottom: 13px;
+}
+
+.compare-key span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.compare-key i {
+    width: 9px;
+    height: 9px;
+    display: inline-block;
+    border-radius: 2px;
+}
+
+.young-key,
+.compare-fill.young {
+    background: #B58A4A;
+}
+
+.older-key,
+.compare-fill.older {
+    background: #214D3F;
+}
+
+.compare-group {
+    padding: 10px 0;
+    border-top: 1px solid #D9CFC0;
+}
+
+.compare-group > strong {
+    display: block;
+    color: #29332F;
+    font-size: 12px;
+    margin-bottom: 7px;
+}
+
+.compare-line {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 5px 0;
+}
+
+.compare-line > span {
+    flex: 0 0 32px;
+    font-size: 10px;
+}
+
+.compare-track {
+    flex: 1;
+    height: 7px;
+    background: #D9CFC0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.compare-fill {
+    height: 100%;
+    border-radius: 4px;
+}
+
+.compare-line b {
+    flex: 0 0 37px;
+    text-align: right;
+    font-size: 10px;
+}
+
+.heatmap-dropdown .compare-takeaway {
+    font-size: 12px;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+.compare-takeaway strong {
+    display: block;
+    font-size: 24px;
+    color: #855536;
+}
+
+.compare-source {
+    display: block;
+    color: #756A5E;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+/* Stack on smaller screens */
+@media (max-width: 1000px) {
+    .heatmap-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .heatmap-dropdown {
+        max-width: 280px;
+    }
+}
+
+
+/* ==========================================
+   CONNECTED SCATTERPLOT — SUMMARY SIDEBAR
+   ========================================== */
+
+.trends-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 220px;
+    gap: 18px;
+    align-items: start;
+    margin-top: 22px;
+    max-width: 1100px;
+}
+
+.trends-chart {
+    min-width: 0;
+}
+
+.trends-sidebar {
+    padding: 17px 15px;
+    background: #F0EAE0;
+    border-left: 4px solid #B58A4A;
+    border-radius: 6px;
+}
+
+.trends-sidebar h3 {
+    font-family: Georgia, serif;
+    font-size: 19px;
+    line-height: 1.3;
+    color: #214D3F;
+    margin: 0 0 5px;
+}
+
+.trends-sidebar .trends-period {
+    font-size: 12px;
+    color: #756A5E;
+    margin: 0 0 18px;
+}
+
+.trends-metric {
+    padding: 12px 0;
+    border-top: 1px solid #D9CFC0;
+}
+
+.trends-metric > strong {
+    display: block;
+    color: #29332F;
+    font-size: 13px;
+}
+
+.trends-metric > small {
+    display: block;
+    color: #756A5E;
+    font-size: 11px;
+}
+
+.trends-values {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.trends-values span {
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.trends-values .trends-down,
+.trends-values .trends-up {
+    font-size: 24px;
+}
+
+.trends-down {
+    color: #855536;
+}
+
+.trends-up {
+    color: #214D3F;
+}
+
+.trends-metric p {
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 8px 0 0;
+}
+
+.trends-big-number {
+    font-size: 29px;
+    font-weight: bold;
+    color: #214D3F;
+    margin-top: 8px;
+}
+
+.trends-sidebar .trends-caution {
+    font-size: 11px;
+    line-height: 1.6;
+    color: #756A5E;
+    margin: 12px 0 0;
+}
+
+/* On smaller screens, keep chart full-width */
+
+@media (max-width: 1200px) {
+    .trends-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .trends-sidebar {
+        max-width: 350px;
+    }
+}
+
+
+/* ==========================================
+   FIVE YEARS IN FOCUS — DROPDOWN
+   ========================================== */
+
+.trends-sidebar summary {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    list-style: none;
+    padding-right: 22px;
+}
+
+.trends-sidebar summary::-webkit-details-marker {
+    display: none;
+}
+
+.trends-sidebar summary span {
+    display: block;
+    font-family: Georgia, serif;
+    font-size: 19px;
+    font-weight: bold;
+    line-height: 1.3;
+    color: #214D3F;
+}
+
+.trends-sidebar summary small {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    color: #756A5E;
+}
+
+/* Dropdown arrow */
+.trends-sidebar summary::after {
+    content: "⌄";
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 20px;
+    color: #855536;
+}
+
+.trends-sidebar[open] summary::after {
+    content: "⌃";
+}
+
+.trends-sidebar[open] summary {
+    padding-bottom: 12px;
+}
+
+.trends-sidebar summary:focus-visible {
+    outline: 2px solid #214D3F;
+    outline-offset: 4px;
+}
+
+
+/* ==========================================
+   AUTHOR MAP — BIRTHPLACE DROPDOWN
+   ========================================== */
+
+.author-map-layout {
+    position: relative;
+    width: 100%;
+}
+
+/* Position dropdown in the empty space */
+.author-map-dropdown {
+    position: absolute;
+    top: 65px;
+    right: 0;
+    width: 210px;
+    z-index: 2;
+
+    background: #F0EAE0;
+    border-left: 4px solid #B58A4A;
+    border-radius: 7px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.author-map-dropdown summary {
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    padding-right: 18px;
+}
+
+.author-map-dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+.author-map-dropdown summary span {
+    display: block;
+    font-family: Georgia, serif;
+    font-weight: bold;
+    font-size: 17px;
+    color: #214D3F;
+    line-height: 1.3;
+}
+
+.author-map-dropdown summary small {
+    display: block;
+    font-size: 11px;
+    line-height: 1.5;
+    color: #756A5E;
+    margin-top: 6px;
+}
+
+.author-map-dropdown summary::after {
+    content: "⌄";
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #855536;
+    font-size: 18px;
+}
+
+.author-map-dropdown[open] summary::after {
+    content: "⌃";
+}
+
+.author-map-dropdown summary:focus-visible {
+    outline: 2px solid #214D3F;
+    outline-offset: 3px;
+}
+
+.author-dropdown-content {
+    margin-top: 18px;
+    padding-top: 12px;
+    border-top: 1px solid #D9CFC0;
+}
+
+.author-location {
+    margin-bottom: 15px;
+}
+
+.author-location-label {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    font-size: 11px;
+    margin-bottom: 6px;
+}
+
+.author-location-label strong {
+    white-space: nowrap;
+}
+
+.author-bar-track {
+    height: 8px;
+    background: #D9CFC0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.author-bar {
+    height: 100%;
+    background: #214D3F;
+    border-radius: 5px;
+}
+
+.author-map-totals {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    border-top: 1px solid #D9CFC0;
+    padding-top: 12px;
+}
+
+.author-map-totals div {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-map-totals strong {
+    font-size: 23px;
+    color: #855536;
+}
+
+.author-map-totals span {
+    font-size: 10px;
+    color: #555D56;
+}
+
+.author-dropdown-content p {
+    font-size: 11px;
+    line-height: 1.6;
+    margin: 14px 0 0;
+}
+
+/* On smaller screens place dropdown below map */
+@media (max-width: 1150px) {
+    .author-map-dropdown {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        max-width: 280px;
+        margin-top: 15px;
+    }
+}
