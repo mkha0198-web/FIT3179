@@ -13,17 +13,81 @@
 </head>
 <body>
 
+
     <!-- Website Introduction -->
     <header>
-        <h1>Beyond the Bookshelf</h1>
-        <h2>How Australia Reads and Borrows</h2>
+        <div class="hero-layout">
 
-        <p>
-            Exploring how Australians read, what different
-            generations enjoy, and how public libraries
-            are changing in the digital age.
-        </p>
+            <div class="hero-text">
+                <h1>Beyond the Bookshelf</h1>
+                <h2>How Australia Reads and Borrows</h2>
+
+                <p>
+                    Exploring how Australians read, what different
+                    generations enjoy, and how public libraries
+                    are changing in the digital age.
+                </p>
+            </div>
+
+            <!-- Decorative Vintage Bookshelf -->
+            <div class="hero-books" aria-hidden="true">
+                <svg viewBox="0 0 300 230"
+                    xmlns="http://www.w3.org/2000/svg">
+
+                    <!-- Bookshelf -->
+                    <rect x="28" y="205" width="245" height="9"
+                        rx="2" fill="#855536"/>
+
+                    <!-- Book 1 -->
+                    <rect x="45" y="75" width="43" height="130"
+                        rx="3" fill="#214D3F"/>
+                    <path d="M54 87 V193 M79 87 V193"
+                        stroke="#B58A4A" stroke-width="2"/>
+                    <rect x="57" y="111" width="20" height="3"
+                        fill="#B58A4A"/>
+
+                    <!-- Book 2 -->
+                    <rect x="95" y="48" width="44" height="157"
+                        rx="3" fill="#855536"/>
+                    <path d="M104 60 V193 M130 60 V193"
+                        stroke="#D2B179" stroke-width="2"/>
+                    <rect x="108" y="93" width="18" height="4"
+                        fill="#D2B179"/>
+
+                    <!-- Book 3 -->
+                    <rect x="146" y="88" width="40" height="117"
+                        rx="3" fill="#66937D"/>
+                    <path d="M155 100 V193 M177 100 V193"
+                        stroke="#F8F5EF" stroke-width="2"/>
+
+                    <!-- Leaning Book -->
+                    <g transform="rotate(12 218 145)">
+                        <rect x="198" y="67" width="42" height="138"
+                            rx="3" fill="#B58A4A"/>
+                        <path d="M207 79 V193 M231 79 V193"
+                            stroke="#855536" stroke-width="2"/>
+                    </g>
+
+                </svg>
+            </div>
+
+        </div>
     </header>
+
+
+
+    <!-- Quick Navigation -->
+    <nav class="quick-nav" aria-label="Explore the data story">
+        <a href="#readers">Readers</a>
+        <a href="#generations">Generations</a>
+        <a href="#libraries">Libraries</a>
+        <a href="#library-trends">Library Trends</a>
+        <a href="#authors">Authors</a>
+        <a href="#top-authors">Top Authors</a>
+        <a href="#favourite-books">Favourite Books</a>
+        <a href="#publication-years">Publication Years</a>
+        <a href="#glossary">Glossary</a>
+    </nav>
 
     <main>
 
@@ -32,7 +96,7 @@
         <section>
             
             <div class="section-title-row">
-                <h2>01 — A Nation of Readers</h2>
+                <h2 id="readers">01 — A Nation of Readers</h2>
 
                 <div class="reading-ring"
                     role="img"
@@ -60,7 +124,14 @@
                     <p class="chart-note">
                         Each square represents approximately 1%
                         of Australians aged 15+.
+
+                        <br><br>
+
+                        <strong>Source:</strong>
+                        Creative Australia, National Arts
+                        Participation Survey 2025, Table 7.
                     </p>
+
                 </div>
 
                 <div class="chart-panel">
@@ -84,37 +155,78 @@
 
         <!-- Section 2: Heatmap -->
         <section>
-            <h2>02 — Reading Across Generations</h2>
-
+            <h2 id="generations">02 — Reading Across Generations</h2>
+       
             <p>
-                Reading preferences differ across age groups.
-                Explore how six book genres appeal to
-                different generations of Australians.
+                What types of books do different generations
+                of Australians read? Explore how reading
+                participation across six book genres varies
+                between age groups in 2025.
             </p>
 
             <div id="genre_heatmap"></div>
 
-            <p class="heatmap-insight">
+            <div class="heatmap-insight">
+
                 <strong>Key finding:</strong>
-                The highest value is 54.6% for Australians aged
-                65+ reading novels or short stories.
-                Percentages represent people within each age group,
-                and respondents could select multiple genres.
-            </p>
+                The highest value is 54.6% for Australians
+                aged 65+ reading novels or short stories.
+
+                <p>
+                    <strong>How to read:</strong>
+                    Each rectangle represents the percentage
+                    of people within an age group who reported
+                    reading a particular genre for pleasure.
+                    Darker green indicates a higher percentage.
+                    Respondents could select multiple genres.
+                </p>
+
+                <small>
+                    <strong>Source:</strong>
+                    Creative Australia, National Arts
+                    Participation Survey 2025, Table 7.
+                </small>
+
+            </div>
 
         </section>
 
         
         <!-- Section 3: Digital Bookshelf and Library Map -->
         <section>
-            <h2>03 — The Digital Bookshelf</h2>
+            <h2 id="libraries">03 — The Digital Bookshelf</h2>
 
             <p>
                 Australian public libraries are evolving.
-                Digital collections have expanded, changing
-                the balance between physical and digital holdings.
-                But how are library services distributed
-                across Australia?
+                Digital
+
+                <span class="term-wrapper">
+                    <button
+                        type="button"
+                        class="term-trigger"
+                        aria-describedby="collections-definition">
+                        library collections
+                    </button>
+
+                    <span
+                        class="term-tooltip"
+                        id="collections-definition"
+                        role="tooltip">
+
+                        <strong>What are library collections?</strong>
+
+                        The books and other resources available
+                        through a library, including printed books,
+                        ebooks, audiobooks and digital materials.
+
+                        Collection holdings represent available
+                        resources, not borrowing transactions.
+                    </span>
+                </span>
+
+                have expanded, changing the balance between
+                physical and digital holdings. But how are
+                library services distributed across Australia?
             </p>
 
             <div class="chart-pair library-pair">
@@ -128,18 +240,30 @@
 
                     <div class="chart-visual"
                         id="collections_butterfly"></div>
-
+                    
                     <p class="chart-note">
-                        Physical and digital collection holdings
-                        are measured in millions of items.
+                        <strong>Physical holdings</strong> include printed
+                        books and other physical library materials.
+
+                        <br><br>
+
+                        <strong>Digital holdings</strong> include ebooks
+                        and other electronic library resources.
+
+                        <br><br>
+
+                        Figures are measured in millions of items.
                     </p>
 
-                    <div class="chart-insight-small">
+                    <div class="chart-insight-small">                        
                         <strong>Key finding:</strong>
-                        Digital library holdings increased from
-                        7.33 million in 2020–21 to 14.02 million
-                        in 2024–25, while physical holdings
-                        remained around 33 million.
+                        Australia's digital library holdings grew by
+                        <strong>approximately 91%</strong>, increasing from
+                        7.33 million items in 2020–21 to 14.02 million
+                        in 2024–25.
+
+                        Physical holdings remained comparatively stable,
+                        at around 33 million items.
 
                         <p>
                             These figures represent collection
@@ -193,7 +317,7 @@
 
         <!-- Section 4: Connected Scatterplot -->
         <section>
-            <h2>04 — The Changing Library</h2>
+            <h2 id="library-trends">04 — The Changing Library</h2>
 
             <p>
                 Registered library membership has declined
@@ -203,6 +327,14 @@
             </p>
 
             <div id="membership_scatter"></div>
+
+            <p class="scatter-direction">
+                <strong>Follow the years:</strong>
+                The line moves from 2020–21 (bottom-right)
+                towards 2024–25 (top-left).
+                Membership decreases while recorded library
+                collection use per person increases.
+            </p>
 
             <div class="chart-insight">
                 <strong>Key finding:</strong>
@@ -238,80 +370,121 @@
         
         <!-- Section 05: Australian Authors -->
         <section>
-            <h2>05 — Where Were Australia's Favourite Authors Born?</h2>
-
+            <h2 id="authors">05 — Where Were Australia's Favourite Authors Born?</h2>
+    
             <p>
-                Australia's favourite books come from writers with
-                different backgrounds and birthplaces.
+                Where do the writers behind Australia's favourite
+                books come from?
 
-                This map explores the Australian birthplaces of selected
-                authors featured in ABC Radio National's 2026
-                Top 100 Australian Books.
+                This map explores the birthplaces of 30 selected
+                Australia-born authors featured in ABC Radio
+                National's 2026 Top 100 Australian Books.
 
-                Hover over each gold marker to discover the authors,
-                their birthplaces and their ranked books.
+                Hover over each gold marker to discover the
+                authors, their birthplaces and their ranked books.
             </p>
 
             <div id="author_birthplace_map"></div>
-
+            
             <div class="chart-insight">
-                <strong>How to read this map:</strong>
-                Each gold circle represents a verified birthplace
-                location. Locations shared by multiple authors are
-                represented by one marker.
+
+                <strong>Key finding:</strong>
+                Among the 30 selected authors, Melbourne
+                and its grouped localities account for seven
+                authors, followed by Sydney with five and
+                Perth with two.
 
                 <p>
-                    Markers are positioned at approximate city or
-                    locality centres, not exact birth addresses.
-                    This map shows selected verified Australian born authors,
-                    not every author in the Top 100.
+                    <strong>How to read:</strong>
+                    Each gold circle represents a birthplace
+                    location. All markers are equally sized,
+                    regardless of how many featured authors
+                    were born there.
+
+                    Hover over a marker to explore the authors
+                    and their ABC-ranked books.
+                </p>
+
+                <p>
+                    <strong>Note:</strong>
+                    Locations are approximate city or locality
+                    centres, not exact birth addresses.
+
+                    This map includes selected Australia born
+                    authors only. It does not represent the
+                    geographical distribution of all Australian
+                    authors, and overseas birthplaces are excluded.
                 </p>
 
                 <small>
-                    Sources: ABC Radio National, Top 100 Australian
-                    Books (2026), and author biographical references.
+                    Source: ABC Radio National, Top 100
+                    Australian Books (2026), and referenced
+                    author biographical records.
                 </small>
+
             </div>
+
         </section>
 
         
         <!-- Section 06: Australia's Most-Loved Authors -->
         <section>
-            <h2>06 — Australia's Most Represented Authors</h2>
-
+            <h2 id="top-authors">06 — Australia's Most Represented Authors</h2>
+          
             <p>
                 Which Australian authors appear most frequently
                 in ABC Radio National's 2026 Top 100 Australian Books?
 
-                This treemap highlights authors with multiple books
-                in the ranking. Larger rectangles represent more
-                books appearing in the Top 100.
+                This treemap compares 16 authors who each have
+                at least two books in the ranking.
+
+                Larger and darker green rectangles represent
+                authors with more books in the Top 100.
+                Hover over each rectangle to discover their
+                ranked titles.
             </p>
 
             <div id="author_treemap"></div>
-
+         
             <div class="chart-insight">
-                <strong>How to read this treemap:</strong>
-                Each rectangle represents an author, and its area
-                represents the number of their books in the Top 100.
+
+                <strong>Key finding:</strong>
+                Tim Winton and Helen Garner are the most
+                represented authors, with four books each
+                in the ABC Top 100.
+
+                Geraldine Brooks and Anna Funder follow,
+                with three books each.
 
                 <p>
-                    Only authors with at least two ranked books
-                    are included. Rectangle sizes do not represent
-                    reader ratings or the total number of votes.
+                    <strong>How to read:</strong>
+                    Each rectangle represents one author.
+                    Larger and darker green rectangles
+                    indicate more books appearing in
+                    the national ranking.
+                </p>
+
+                <p>
+                    <strong>Note:</strong>
+                    Only authors with at least two ranked
+                    books are included. Rectangle sizes
+                    represent the number of ranked books,
+                    not reader ratings or total votes.
                 </p>
 
                 <small>
                     Source: ABC Radio National,
                     Top 100 Australian Books (2026).
                 </small>
+
             </div>
+
         </section>
 
 
         <!-- Section 07: Favourite Books by State -->
         <section>
-            <h2>07 — Australia's Favourite Books by State</h2>
+            <h2 id="favourite-books">07 — Australia's Favourite Books by State</h2>
 
             <p>
                 Do Australians across different states love the
@@ -324,6 +497,43 @@
             </p>
 
             <div id="state_book_winners_map"></div>
+            
+            <div class="book-legend" id="book-legend"
+                role="group"
+                aria-label="Highlight states by favourite book">
+
+                <strong>State / territory winning book</strong>
+
+                <button type="button" data-book="All"
+                        aria-pressed="true">
+                    All books
+                </button>
+
+                <button type="button" data-book="Cloudstreet"
+                        aria-pressed="false">
+                    <span class="book-swatch cloudstreet"></span>
+                    Cloudstreet
+                </button>
+
+                <button type="button" data-book="The Book Thief"
+                        aria-pressed="false">
+                    <span class="book-swatch book-thief"></span>
+                    The Book Thief
+                </button>
+
+                <button type="button" data-book="Boy Swallows Universe"
+                        aria-pressed="false">
+                    <span class="book-swatch boy-swallows"></span>
+                    Boy Swallows Universe
+                </button>
+            </div>
+
+            <p style="font-size: 14px; color: #555D56;">
+                <strong>Explore the map:</strong>
+                Click a book in the legend to highlight
+                the states and territories where it ranked first.
+                Select "All books" to show every region again.
+            </p>
 
             <div class="chart-insight">
                 <strong>Key finding:</strong>
@@ -346,7 +556,7 @@
 
         <!-- Section 08: Books Through the Years -->
         <section>
-            <h2>08 — Books Through the Years</h2>
+            <h2 id="publication-years">08 — Books Through the Years</h2>
 
             <p>
                 Australia's favourite books span more than a century
@@ -361,16 +571,28 @@
             <div class="chart-visual"
                 id="publication_year_beeswarm"></div>
 
-            
             <p style="font-size: 14px;">
                 <strong>How to read:</strong>
-                Dot colour represents the book's primary genre.
-                Larger dots with gold outlines indicate the
-                National Top 10. Other dots represent ranks 11–100.
-                Hover for book details.
-                Genre categories are approximate.
-            </p>
+                Each dot represents one book, positioned
+                according to its first publication year.
 
+                Dot colour represents its approximate
+                primary genre. Larger dots with gold
+                outlines identify the National Top 10;
+                smaller dots represent ranks 11–100.
+
+                <br><br>
+
+                <strong>Explore the chart:</strong>
+                Click a genre in the legend to highlight
+                its books and fade the other genres.
+                Hold Shift while clicking to select
+                multiple genres.
+
+                Hover over a dot to see the book's
+                title, author, genre, publication year
+                and national ranking.
+            </p>
 
             <div class="chart-insight">
                 <strong>Key finding:</strong>
@@ -398,7 +620,7 @@
 
         <!-- Appendix: Abbreviations and Terms -->
         <section class="appendix-section">
-            <h2>Appendix — Abbreviations & Terms</h2>
+            <h2 id="glossary">Appendix — Abbreviations & Terms</h2>
 
             <p>
                 A quick guide to the state abbreviations,

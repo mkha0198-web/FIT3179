@@ -91,14 +91,45 @@ vegaEmbed(
     console.error('Error loading author treemap:', error);
 });
 
-// Chart 09: Favourite Australian Books by State
+
+ // Chart 09: Favourite Australian Books by State
 vegaEmbed(
     '#state_book_winners_map',
     'charts/state_favourite_book.vg.json',
     { actions: false }
-).catch(error => {
-    console.error('Error loading favourite books map:', error);
+).then(result => {
+
+    const view = result.view;
+    const buttons = document.querySelectorAll(
+        '#book-legend button[data-book]'
+    );
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+
+            const selectedBook = button.dataset.book;
+
+            // Update both the Australian map and ACT inset
+            view.signal('selectedBook', selectedBook).runAsync();
+
+            // Highlight the selected legend button
+            buttons.forEach(b => {
+                b.setAttribute(
+                    'aria-pressed',
+                    String(b === button)
+                );
+            });
+
+        });
+    });
+
+}).catch(error => {
+    console.error(
+        'Error loading favourite books map:',
+        error
+    );
 });
+
 
 // Chart 10: Books Through the Years — Beeswarm
 vegaEmbed(

@@ -455,3 +455,312 @@ footer p {
         padding: 22px 18px;
     }
 }
+
+/* ==========================================
+   QUICK NAVIGATION TABS
+   ========================================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+.quick-nav {
+    position: sticky;
+    top: 10px;
+    z-index: 100;
+
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 5px;
+    overflow-x: auto;
+
+    padding: 9px;
+    margin: 0 0 22px;
+
+    background: rgba(248, 245, 239, 0.97);
+    border: 1px solid #D9CFC0;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(33, 77, 63, 0.08);
+
+    scrollbar-width: thin;
+}
+
+.quick-nav a {
+    flex-shrink: 0;
+    white-space: nowrap;
+
+    padding: 8px 11px;
+    border-radius: 6px;
+
+    color: #214D3F;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-decoration: none;
+
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.quick-nav a:hover,
+.quick-nav a:focus-visible {
+    background: #214D3F;
+    color: #F8F5EF;
+}
+
+/* Prevent sticky navigation from covering headings */
+main h2[id] {
+    scroll-margin-top: 105px;
+}
+
+/* Mobile navigation */
+@media (max-width: 700px) {
+    .quick-nav {
+        top: 5px;
+        padding: 7px;
+    }
+
+    .quick-nav a {
+        font-size: 12px;
+        padding: 7px 9px;
+    }
+}
+
+
+/* ==========================================
+   VINTAGE BOOK-THEMED HEADER
+   ========================================== */
+
+.hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 275px;
+    align-items: center;
+    gap: 35px;
+}
+
+.hero-text {
+    min-width: 0;
+}
+
+.hero-text p {
+    max-width: 690px;
+}
+
+.hero-books {
+    width: 100%;
+    max-width: 275px;
+    justify-self: end;
+    opacity: 0.8;
+}
+
+.hero-books svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Smaller screens */
+@media (max-width: 700px) {
+    .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .hero-books {
+        max-width: 165px;
+        justify-self: center;
+        opacity: 0.65;
+    }
+}
+
+
+/* ==========================================
+   INTERACTIVE TERM DEFINITIONS
+   ========================================== */
+
+.term-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.term-trigger {
+    display: inline;
+    padding: 0;
+    border: none;
+    background: none;
+
+    color: #214D3F;
+    font: inherit;
+    font-weight: 600;
+    line-height: inherit;
+
+    text-decoration: underline dotted #B58A4A 2px;
+    text-underline-offset: 4px;
+
+    cursor: help;
+}
+
+.term-trigger:focus-visible {
+    outline: 2px solid #B58A4A;
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+.term-tooltip {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 10px);
+
+    width: min(320px, 80vw);
+    box-sizing: border-box;
+    padding: 15px 18px;
+
+    background: #F0EAE0;
+    border: 1px solid #D9CFC0;
+    border-left: 4px solid #B58A4A;
+    border-radius: 6px;
+
+    color: #29332F;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.6;
+    text-align: left;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.10);
+    z-index: 200;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity 0.2s ease;
+}
+
+.term-tooltip strong {
+    display: block;
+    color: #214D3F;
+    margin-bottom: 8px;
+}
+
+/* Show definition on hover or keyboard focus */
+.term-wrapper:hover .term-tooltip,
+.term-wrapper:focus-within .term-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Heatmap explanation box improvements */
+
+.heatmap-insight p {
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 12px 0;
+}
+
+.heatmap-insight small {
+    display: block;
+    font-size: 12px;
+    color: #756A5E;
+    margin-top: 12px;
+}
+
+
+/* Align source captions in Section 03 */
+
+.library-pair .chart-insight-small {
+    position: relative;
+    padding-bottom: 49px;
+}
+
+.library-pair .chart-insight-small small {
+    position: absolute;
+    bottom: 16px;
+    left: 18px;
+    right: 18px;
+    margin-top: 0;
+}
+
+/* Allow captions to flow normally on smaller screens */
+@media (max-width: 1000px) {
+    .library-pair .chart-insight-small {
+        padding-bottom: 16px;
+    }
+
+    .library-pair .chart-insight-small small {
+        position: static;
+        margin-top: 12px;
+    }
+}
+
+
+/* Connected scatterplot reading direction */
+
+#membership_scatter {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.scatter-direction {
+    max-width: 750px;
+    margin: 15px 0 22px;
+    padding: 12px 16px;
+
+    background: #F0EAE0;
+    border-left: 3px solid #B58A4A;
+
+    color: #555D56;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* Interactive favourite-books legend */
+
+.book-legend {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    max-width: 850px;
+    margin: 8px 0 20px;
+}
+
+.book-legend strong {
+    width: 100%;
+    font-size: 13px;
+    color: #29332F;
+}
+
+.book-legend button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 11px;
+    background: #F8F5EF;
+    border: 1px solid #D9CFC0;
+    border-radius: 6px;
+    color: #29332F;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.book-legend button:hover,
+.book-legend button[aria-pressed="true"] {
+    background: #EAE5DA;
+    border-color: #214D3F;
+}
+
+.book-legend button:focus-visible {
+    outline: 2px solid #214D3F;
+    outline-offset: 2px;
+}
+
+.book-swatch {
+    width: 11px;
+    height: 11px;
+    display: inline-block;
+}
+
+.cloudstreet { background: #4F8271; }
+.book-thief { background: #B58A4A; }
+.boy-swallows { background: #855536; }

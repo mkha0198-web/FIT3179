@@ -135,7 +135,7 @@
             "value": "Georgia"
           },
           "fontSize": {
-            "signal": "datum.book_count >= 3 ? 19 : 15"
+            "signal": "datum.author === 'Melissa Lucashenko' ? 12 : (datum.book_count >= 3 ? 19 : 15)"
           },
           "fontWeight": {
             "value": "bold"

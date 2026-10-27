@@ -37,7 +37,7 @@
       }
     },
     {
-      "calculate": "datum.square <= round(datum.percentage) ? 'Read books' : 'Did not read for pleasure'",
+      "calculate": "datum.square <= round(datum.percentage) ? 'Read books for pleasure' : 'Did not read for pleasure'",
       "as": "status"
     },
     {
@@ -49,7 +49,7 @@
       "as": "row"
     },
     {
-      "calculate": "datum.status == 'Read books' ? datum.percentage : 100 - datum.percentage",
+      "calculate": "datum.status == 'Read books for pleasure' ? datum.percentage : 100 - datum.percentage",
       "as": "group_percentage"
     }
   ],
@@ -75,12 +75,15 @@
       "field": "status",
       "type": "nominal",
       "scale": {
-        "domain": ["Read books", "Did not read for pleasure"],
+        "domain": ["Read books for pleasure", "Did not read for pleasure"],
         "range": ["#214D3F", "#DED5C7"]
       },
       "legend": {
         "title": null,
-        "orient": "bottom"
+        "orient": "bottom",
+        "labelFontSize": 12,
+        "symbolSize": 120,
+        "labelLimit": 250
       }
     },
     "tooltip": [

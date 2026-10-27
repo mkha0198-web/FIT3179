@@ -67,15 +67,7 @@
                   "#855536"
                 ]
               },
-              "legend": {
-                "title": "State / territory winning book",
-                "orient": "bottom",
-                "symbolType": "square",
-                "labelFontSize": 11,
-                "titleFontSize": 12,
-                "labelLimit": 190,
-                "columns": 3
-              }
+              "legend": null
             },
             "tooltip": [
               {
@@ -93,7 +85,14 @@
                 "type": "nominal",
                 "title": "Author"
               }
-            ]
+            ],
+            "opacity": {
+              "condition": {
+                "test": "selectedBook === 'All' || datum.favourite_book === selectedBook",
+                "value": 1
+              },
+              "value": 0.2
+            }
           }
         },
         {
@@ -145,7 +144,14 @@
                 "type": "nominal",
                 "title": "Author"
               }
-            ]
+            ],
+            "opacity": {
+              "condition": {
+                "test": "selectedBook === 'All' || datum.favourite_book === selectedBook",
+                "value": 1
+              },
+              "value": 0.2
+            }
           }
         },
         {
@@ -186,6 +192,13 @@
             "text": {
               "field": "state_code",
               "type": "nominal"
+            },
+            "opacity": {
+              "condition": {
+                "test": "selectedBook === 'All' || datum.favourite_book === selectedBook",
+                "value": 1
+              },
+              "value": 0.2
             }
           }
         }
@@ -260,7 +273,14 @@
                 "type": "nominal",
                 "title": "Author"
               }
-            ]
+            ],
+            "opacity": {
+              "condition": {
+                "test": "selectedBook === 'All' || datum.favourite_book === selectedBook",
+                "value": 1
+              },
+              "value": 0.2
+            }
           }
         }
       ]
@@ -283,5 +303,11 @@
     "title": {
       "anchor": "middle"
     }
-  }
+  },
+  "params": [
+    {
+      "name": "selectedBook",
+      "value": "All"
+    }
+  ]
 }

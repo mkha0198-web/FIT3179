@@ -3,8 +3,8 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Australian public library membership and collection usage per capita, 2020-21 to 2024-25.",
 
-  "width": 600,
-  "height": 360,
+  "width": 750,
+  "height": 440,
   "background": "#F8F5EF",
 
   "data": {
@@ -30,8 +30,8 @@
       "axis": {
         "title": "Registered members (% of population)",
         "values": [25, 28, 31, 34, 37, 40],
-        "labelFontSize": 12,
-        "titleFontSize": 13,
+        "labelFontSize": 14,
+        "titleFontSize": 16,
         "grid": true,
         "gridColor": "#DED8CE"
       }
@@ -46,8 +46,8 @@
       "axis": {
         "title": "Library collection uses per person (per year)",
         "values": [5, 5.5, 6, 6.5, 7],
-        "labelFontSize": 12,
-        "titleFontSize": 13,
+        "labelFontSize": 14,
+        "titleFontSize": 16,
         "grid": true,
         "gridColor": "#DED8CE"
       }

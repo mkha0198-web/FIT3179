@@ -4,6 +4,16 @@
   "width": 810,
   "height": 310,
   "background": "#F8F5EF",
+  "params": [
+    {
+        "name": "genreFocus",
+        "select": {
+            "type": "point",
+            "fields": ["primary_genre"]
+        },
+        "bind": "legend"
+    }
+ ],
   "data": {
     "url": "data/abc_2026_top100_publication_beeswarm_genres.csv",
     "format": {
@@ -98,6 +108,13 @@
         "labelLimit": 270,
         "offset": 18
       }
+    },
+    "opacity": {
+        "condition": {
+            "param": "genreFocus",
+            "value": 0.95
+        },
+        "value": 0.15
     },
     "size": {
       "condition": {
